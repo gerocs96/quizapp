@@ -16,13 +16,13 @@ body {
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(100, 100, 100, 0.1);
-    width: 600px;
-    max-width: 100%;
+    width: 60vw;
+    max-width: 600px;
     overflow: hidden;
 }
 
 .quiz-header {
-    padding: 4rem;
+    padding: 4vh;
 }
 
 h2 {
@@ -59,3 +59,5 @@ button {
 button:hover {
     background-color:#00126d;
 }
+
+

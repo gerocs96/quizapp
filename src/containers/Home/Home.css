@@ -1,0 +1,24 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home h1{
+    font-size: 5vw;
+}
+
+.Home h3{
+    font-size: 3vw;
+}
+
+@media(min-width: 500px){
+    .Home h1 {
+        font-size: 2vw;
+    }
+
+    .Home h3 {
+        font-size: 1vw;
+    }
+}
