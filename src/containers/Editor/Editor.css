@@ -1,0 +1,51 @@
+.Editor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    width: 90vw;
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Form > TextField {
+    margin: 0.5rem;
+}
+
+.Form > .Buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Buttons > Button{
+    margin: 0.5rem;
+}
+
+.Form > section{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form > section > label{
+    margin: 1rem;
+}
+
+.Form > section > label > span {
+    font-weight: bold;
+}
+
+.Editor > h2{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}

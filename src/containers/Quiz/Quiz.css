@@ -44,7 +44,7 @@ ul li label {
     cursor: pointer;
 }
 
-button {
+div > button {
     background-color:#000c46;
     display: block;
     width: 100%;
@@ -56,7 +56,7 @@ button {
     font-size: 1.5rem;
 }
 
-button:hover {
+div > button:hover {
     background-color:#00126d;
 }
 
