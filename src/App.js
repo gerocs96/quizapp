@@ -11,7 +11,6 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/editor" component={Editor} />
           <Route path="/quiz" component={Quiz} />
-
       </Layout>
     </div>
   );

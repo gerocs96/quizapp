@@ -8,7 +8,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
@@ -25,7 +24,7 @@ const Editor = () => {
         e.preventDefault();
         //console.log("adding quiz");
 
-        if (false1Input && false2Input && false3Input && questionInput && trueInput) {
+        if (false1Input.trim() && false2Input.trim() && false3Input.trim() && questionInput.trim() && trueInput.trim()) {
             db.collection("quizes").add({            
             answer1: false1Input,
             answer2: false2Input,
@@ -35,7 +34,7 @@ const Editor = () => {
             question: questionInput,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             }).then(() => {
-                alert("Question added.");
+                alert("Quiz added.");
             }).catch((error) => {
                 alert(error.message);
             });
@@ -47,7 +46,7 @@ const Editor = () => {
             setFalse3Input("");
         }
         else
-            console.log("all fields are required");
+            alert("all fields are required");
     }
 
     const cancelQuiz = (e) => {
@@ -83,6 +82,7 @@ const Editor = () => {
 
     const delQuiz = (id) => {
         db.collection("quizes").doc(id).delete();
+        alert('Quiz deleted.');
     }
 
 
@@ -95,8 +95,7 @@ const Editor = () => {
                 <section>   
                     <label htmlFor="">Write the <span>question</span> here: </label>
                     <TextField id="outlined-basic" label="Question" name="question" variant="outlined" value={questionInput} onChange={(e) => {
-                    setQuestionInput(e.target.value);
-                }}/>
+                    setQuestionInput(e.target.value);}}/>
                 </section>
 
                 <section>
@@ -129,7 +128,7 @@ const Editor = () => {
                 </div>
             </form>             
             <h2>Questions</h2>
-            <Table aria-label="customized table" style={{minWidth: "1000px"}}>
+            <Table aria-label="customized table" style={{minWidth: "60vw"}}>
                 <TableHead>
                     <TableRow style={{fontWeight: "bold"}}>
                         <TableCell align="center" style={{minWidth: "100px", fontWeight: "bold"}}>Question</TableCell>

@@ -4,7 +4,7 @@ import Toolbar from '../Navigation/Toolbar/Toolbar';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
 class Layout extends Component {
-    state ={
+    state = {
         showSideDrawer: false
     }
     sideDrawerClosedHandler = () => {
@@ -16,6 +16,7 @@ class Layout extends Component {
             return {showSideDrawer: !prevState.showSideDrawer};
         });
     }
+
     render(){
         return(
             <>
@@ -27,6 +28,6 @@ class Layout extends Component {
             </>
         )
     }
-};
+}
 
 export default Layout;

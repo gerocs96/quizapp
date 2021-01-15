@@ -19,10 +19,13 @@ body {
     width: 60vw;
     max-width: 600px;
     overflow: hidden;
+    margin: 1rem;
 }
 
 .quiz-header {
     padding: 4vh;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
@@ -31,18 +34,13 @@ h2 {
     padding: 1rem;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.Answers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-ul li {
-    margin: 1rem 0;
-}
-
-ul li label {
-    cursor: pointer;
-}
 
 div > button {
     background-color:#000c46;
@@ -60,4 +58,27 @@ div > button:hover {
     background-color:#00126d;
 }
 
+.Answer{
+    padding: 1rem;
+    width: 48%;
+    display: inline-block;
+    color: whitesmoke;
+    background-color: #000c46;
+    border-radius: 10px;
+    margin: 2px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Answer:hover {
+    background-color: #00126d;
+}
+
+.Score{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
 
