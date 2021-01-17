@@ -28,7 +28,7 @@ const Quiz = () => {
     const [showUI, setShowUI] = useState(true);
     const [currentScore, setCurrentScore] = useState(0);
     const checkAnswer = (e) => {
-        if (e) {
+         if (e) {
             console.log(currentScore); 
             const nextScore = currentScore + 1;
             setCurrentScore(nextScore);

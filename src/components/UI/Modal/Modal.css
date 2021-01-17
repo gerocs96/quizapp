@@ -1,0 +1,29 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    background-color: whitesmoke;
+    width: 70%;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.1);
+    padding: 16px;
+    left: 15%;
+    top: 30%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Modal > Button{
+    max-width: 20%;
+}
+
+@media (min-width: 600px) {
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}

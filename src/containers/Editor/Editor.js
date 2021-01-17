@@ -2,6 +2,7 @@ import './Editor.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useState, useEffect } from 'react';
+import Modal from '../../components/UI/Modal/Modal';
 import { db } from '../../firebase_config';
 import firebase from 'firebase';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -19,12 +20,14 @@ const Editor = () => {
     const [false2Input, setFalse2Input] = useState("");
     const [false3Input, setFalse3Input] = useState("");  
 
+    const [isOpen, setIsOpen] = useState(false);
 
     const addQuiz = (e) => {
         e.preventDefault();
-        //console.log("adding quiz");
 
         if (false1Input.trim() && false2Input.trim() && false3Input.trim() && questionInput.trim() && trueInput.trim()) {
+            setIsOpen(true);
+
             db.collection("quizes").add({            
             answer1: false1Input,
             answer2: false2Input,
@@ -34,7 +37,7 @@ const Editor = () => {
             question: questionInput,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             }).then(() => {
-                alert("Quiz added.");
+                alert("Quiz added.")
             }).catch((error) => {
                 alert(error.message);
             });
@@ -46,12 +49,11 @@ const Editor = () => {
             setFalse3Input("");
         }
         else
-            alert("all fields are required");
+            alert("All fields are required!");
     }
 
     const cancelQuiz = (e) => {
         e.preventDefault();
-        //console.log("cancelling quiz");
 
         setQuestionInput("");
         setTrueInput("");
@@ -63,7 +65,7 @@ const Editor = () => {
     const [quizes, setQuizes] = useState([]);
     useEffect(() => {
         getQuiz();
-    }, [])    
+    }, []) 
 
     const getQuiz = () => {
         db.collection("quizes").onSnapshot(function(querySnapshot){
@@ -82,9 +84,8 @@ const Editor = () => {
 
     const delQuiz = (id) => {
         db.collection("quizes").doc(id).delete();
-        alert('Quiz deleted.');
+        alert("Quiz deleted.")
     }
-
 
     return (
         <div className="Editor">
@@ -126,7 +127,10 @@ const Editor = () => {
                     <Button variant="contained" type="submit" onClick={addQuiz} style={{color: "whitesmoke", backgroundColor: "#000c46"}}>Add</Button>
                     <Button variant="contained" color="secondary" onClick={cancelQuiz} tyle={{color: "whitesmoke"}}>Clear</Button>
                 </div>
-            </form>             
+            </form>
+            <Modal open={false} onClose={() => setIsOpen(false)}>
+                Quiz added succesfully.
+            </Modal>
             <h2>Questions</h2>
             <Table aria-label="customized table" style={{minWidth: "60vw"}}>
                 <TableHead>
